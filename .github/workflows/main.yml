@@ -1,20 +1,22 @@
-name: CI/CD
+name: Demo CI/CD
 
 on:
-   push:
-     branches: ["main"]
+  push:
+    branches: [ "main" ]
 
 jobs:
-  thuc_hanh_doc_file:
+  build:
     runs-on: ubuntu-latest
 
-    steps: 
-      - name: Bước 1  - Xin chào
-        run: echo "Hello Hutech!"
+    steps:
+      # Bước 1: In ra Xin chào
+      - name: Say Hello
+        run: echo "Xin chào CI/CD 🚀"
 
-      - name: Bước 2 - Tải code
-        run: actions/checkout@6
+      # Bước 2: Checkout code từ GitHub
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Bước 3 - Đọc file
+      # Bước 3: Đọc file README
+      - name: Read README file
         run: cat README.md
-        
